@@ -12,12 +12,24 @@
     <header>
         <h2 class="logo">Portfolio.</h2>
     </header>
-    <section class="contact">
+    <nav>
+        <button class="toggle" aria-expanded="false"></button>
+        <div class="menu" data-visible="false">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/pages/About-me.html">About Me</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="/pages/Contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="contact">
+        <video src="/img/Loop Matrix Desktop Wallpaper Full HD.mp4" muted loop autoplay></video>
         <div class="content">
             <h2>Contact Me</h2>
             <p>If you want to get in touch with me, don't hesitate and do it NOW. </p>
         </div>
-        <div class="container">
+        <section class="container">
             <div class="contactInfo">
                 <div class="box">
                     <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
@@ -61,23 +73,16 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </section>
+    </main>
+    <aside>
         <ul class="social">
             <li><a href="https://twitter.com/Federico9838"><i class="fa-brands fa-twitter"></i></a></li>
             <li><a href="https://www.instagram.com/fede_delvalle/"><i class="fa-brands fa-instagram"></i></a></li>
             <li><a href="https://www.facebook.com/federico.delvalle.94/"><i class="fa-brands fa-facebook-f"></a></i></li>
             <li><a href="https://github.com/Federico-Del-Valle"><i class="fa-brands fa-github"></a></i></li>
         </ul>
-    </section>
-    <button class="toggle" aria-expanded="false"></button>
-    <div class="menu" data-visible="false">
-        <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/pages/About-me.html">About Me</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="/pages/Contact.html">Contact</a></li>
-        </ul>
-    </div>
+    </aside>
     <script src="../main.js"></script>
 </body>
 </html>

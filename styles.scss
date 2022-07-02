@@ -15,11 +15,61 @@ $font-family_1: 'Kdam Thmor Pro', sans-serif;
         justify-content: center;
         align-items: center;
 }
+@mixin showcase {
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    background-color: #111;
+}
+@mixin video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: $font-family_1;
+}
+body{
+    background-color: $color_3;
+    color: white;
+}
+// Scrollbar
+::-webkit-scrollbar{
+    width: 20px;
+}
+::-webkit-scrollbar-track{
+    background: $color_1;
+}
+::-webkit-scrollbar-thumb{
+    background: $color_3;
+    border: 3px solid $color_1;
+    border-radius: 990px;
+}
+::-webkit-scrollbar-button:single-button{
+    width: 14px;
+    height: 20px;
+    background: $color_1;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+    background-image: url(/img/up-arrow-svgrepo-com.svg);
+}
+::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-image: url(/img/down-arrow-svgrepo-com\ \(1\).svg);
 }
 // Etiquetas semanticas
 header{
@@ -43,9 +93,10 @@ aside{
         @include social();
         &:after{
             content:"";
-            width: 70px;
+            width: 40px;
             height: 2px;
-            margin-top: 20px;
+            margin-top: 10px;
+            margin-bottom: -20px;
             margin-right: 4px;
             background-color: #fff;
             transform: rotate(90deg) translate(16px,3px);
@@ -62,6 +113,7 @@ aside{
                 transition: 0.3s;
                 &:hover{
                     transform: translateY(-5px);
+                    color: $color_1;
                 }
             }
         }
@@ -71,18 +123,18 @@ nav{
     .toggle{
         position: absolute;
         z-index: 9999;
-        width: 35px;
-        height: 30px;
+        width: 50px;
+        height: 50px;
         border: none;
         top: 3em;
         right: 3em;
-        background: url(/img/kisspng-hamburger-button-compute.png) ;
+        background: url(/img/menu-svgrepo-com.svg);
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: 40px;
         cursor:pointer;
     }
     .toggle[aria-expanded="true"] {
-        background-image: url(/img/png-clipart-computer-icons-x-mark-old-letters-angle-logo.png);
+        background-image: url(/img/icons8-close.svg);
     }
     .menu{
         position: fixed;
@@ -118,27 +170,57 @@ nav{
         transform: translateX(0);
     }
 }
+footer {
+    display: none;
+	p {
+		color: $color_1;
+		text-align: center;
+		margin-bottom: 2px;
+		font-size: 10px;
+	}
+}
+.social__icon, 
+.footer__menu {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px 0;
+}
+.social__icon li, 
+.footer__menu li {
+	list-style: none;
+}
+.social__icon {
+	li {
+		a {
+			font-size: 20px;
+			margin: 0 10px;
+			color: $color_2;
+			display: inline-block;
+			transition: 0.5s;
+		}
+	}
+}
+.footer__menu {
+	li {
+		a {
+			font-size: 14px;
+            margin: 0 10px;
+            color: $color_2;
+            display: inline-block;
+            transition: 0.5s;
+            text-decoration: none;
+		}
+	}
+}
+
 // Index page
 .showcase{
-    position: absolute;
-    right: 0;
-    width: 100%;
-    min-height: 100vh;
-    padding: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #111;
-    color: $color_2;
-    z-index: 2;
+    @include showcase();
+    align-items: unset ;
     video{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.8;
+        @include video()
     }
     .text{
         position: relative;
@@ -167,10 +249,10 @@ nav{
             }
         }
         p{
-            font-size: 1.1em;
+            font-size: 25px;
             margin: 20px 0;
             font-weight: 400;
-            max-width:700px ;
+            max-width:740px ;
         }
         a{
             display: inline-block;
@@ -198,23 +280,9 @@ nav{
 
 // CONTACT PAGE
 .contact{
-    position: relative;
-    min-height: 100vh;
-    padding: 50px 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-size: cover;
-    background-color: #111;
+    @include showcase();
     video{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.8;
+        @include video()
     }
     .content{
         max-width: 800px;
@@ -247,7 +315,6 @@ nav{
                 .icon{
                     min-width: 60px;
                     height: 60px;
-                    background: #fff;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -322,26 +389,163 @@ nav{
         }
     }
 }
+// Aboutme 
+.about{
+    @include showcase();
+    video{
+        @include video()
+    }
+    .about-me{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 2;
+        margin: 80px auto 20px;
+        .section__title{
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+        .section__subtitle{
+            background: $color_1;
+            font-size: 35px;
+        }
+        .about-me__body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 25px;
+            img{
+                border-radius: 90px 1px;
+                max-width: 350px;
+                height: 350px;
+                margin: 20px 50px;
+            }
+            p{
+                max-width: 800px;
+                font-size: 20px;
+            }
+        }
+    }
+    .skills__section{
+        margin: 25px auto;
+        width: 480px;
+        padding: 20px;
+        box-shadow: 0 14px 28px $color_1;
+        backdrop-filter: blur(20px);
+        h2{
+            text-align: center;
+        }
+        h3{
+            margin: 5px;
+        }
+        li{
+            margin: 20px 0;
+            padding: 10px;
+            list-style: none;
+        }
+        .bar{
+            background: $color_3;
+            display: block;
+            height: 20px;
+            border: 1px solid $color_1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px $color_1;
+            transition: all 0.3s cubic-bezier(.25, .8, .25, .1);
+            span{
+                height: 20px;
+                float: left;
+                background: linear-gradient(90deg, rgba(164,255,0,1) 0%, rgba(13,195,13,1) 100%);
+            }
+            .html{
+                width: 80%;
+                animation: html 3s;
+            }
+            .css{
+                width: 60%;
+                animation: css 3s;
+            }
+            .bs{
+                width: 50%;
+                animation: bs 3s;
+            }
+            .js{
+                width: 10%;
+                animation: js 3s;
+            }
+        }
+    }
+}
+@keyframes html {
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 80%;
+    }
+}
+@keyframes css {
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 60%;
+    }
+}
+@keyframes bs {
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 50%;
+    }
+}
+@keyframes js {
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 10%;
+    }
+}
 
 // Media querys 
-@media (max-width: 798px){
+@media (max-width: 599px){
     header {
         padding: 40px;
     }
+    footer{
+        position: relative;
+        width: 100%;
+        min-height: 50px;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-decoration: none;
+        margin-bottom: -20px;
+    }
+    aside{
+        display: none;
+    }
 	.showcase {
+        flex-direction: column;
 		padding: 40px;
         .text{
+            margin: 50px auto;
             h2{
-                font-size: 2em;
+                font-size: 40px;
                 margin-top: 60px;
             }
             h3{
-                font-size: 1.3em;
+                font-size: 35px;
             }
-            p{font-size: 0.9em;}
+            p{font-size: 16px;}
             a{
                 padding: 5px;
-                font-size: 12px;
+                font-size: 16px;
                 margin-bottom: 10px;
             }
         }
@@ -357,6 +561,38 @@ nav{
             .contactForm{
                 width: 100%;
             }
+        }
+    }
+    
+    .about{
+        .about-me{
+            margin: 0;
+            .section__title{
+                font-size: 35px;
+                margin-top: 40px;
+            }
+            .section__subtitle{
+                font-size: 25px;
+            }
+            .about-me__body{
+                p{
+                    font-size: 15px;
+                }
+                
+                img{
+                    display: none;
+                }
+            }
+            .skills__section{
+                width: 350px;
+            }
+        }
+    }
+}
+@media (max-width: 1000px){
+    .about-me__body{
+        img{
+            display: none;
         }
     }
 }

@@ -25,15 +25,29 @@ $font-family_1: 'Kdam Thmor Pro', sans-serif;
     flex-direction: column;
     background-size: cover;
     background-color: #111;
+    video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+        }
 }
-@mixin video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
+@mixin tittle {
+    max-width: 800px;
+    text-align: center;
+    margin-top: 50px;
+    z-index: 10;
+    h2{
+        font-size: 50px;
+        color: $color_1;
+    }
+    p{
+        font-size: 20px;
+        color: #fff;
+    }
 }
 *{
     box-sizing: border-box;
@@ -214,14 +228,10 @@ footer {
 		}
 	}
 }
-
 // Index page
 .showcase{
     @include showcase();
     align-items: unset ;
-    video{
-        @include video()
-    }
     .text{
         position: relative;
         z-index: 10;
@@ -266,6 +276,7 @@ footer {
             transition: 0.2s;
             &:hover{
                 letter-spacing: 6px;
+                color: $color_1;
             }
         }
     }
@@ -277,34 +288,20 @@ footer {
     99%{background-color: transparent;}
     100%{background-color: #fff;}
 }
-
 // CONTACT PAGE
 .contact{
     @include showcase();
-    video{
-        @include video()
+    .contact__tittle{
+        @include tittle();
     }
-    .content{
-        max-width: 800px;
-        text-align: center;
-        margin-top: 50px;
-        z-index: 10;
-        h2{
-            font-size: 36px;
-            color: #fff;
-        }
-        p{
-            color: #fff;
-        }
-    }
-    .container{
+    .form{
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-top: 30px;
         backdrop-filter: blur(15px);
-        .contactInfo{
+        .form__info{
             width: 50%;
             display: flex;
             flex-direction: column;
@@ -312,7 +309,7 @@ footer {
                 position: relative;
                 padding: 20px 0;
                 display: flex;
-                .icon{
+                .box__icon{
                     min-width: 60px;
                     height: 60px;
                     display: flex;
@@ -322,7 +319,7 @@ footer {
                     font-size: 22px;
                     margin-left: 20px;
                 }
-                .text{
+                .box__text{
                     display: flex;
                     margin-left: 20px;
                     font-size: 16px;
@@ -334,7 +331,7 @@ footer {
                 }
             }
         }
-        .contactForm{
+        .form__contact{
             width: 50%;
             padding: 40px;
             background: #fff;
@@ -359,6 +356,14 @@ footer {
                             span{
                                 font-size: 12px;
                         transform: translateY(-20px);
+                            }
+                        }
+                    }
+                    &:valid{
+                        ~{
+                            span{
+                                transform: translateY(-20px);
+                                font-size: 12px;
                             }
                         }
                     }
@@ -392,8 +397,11 @@ footer {
 // Aboutme 
 .about{
     @include showcase();
-    video{
-        @include video()
+    .about__tittle{
+        @include tittle();
+        p{
+            font-size: 30px;
+        }
     }
     .about-me{
         display: flex;
@@ -402,14 +410,6 @@ footer {
         flex-direction: column;
         z-index: 2;
         margin: 80px auto 20px;
-        .section__title{
-            font-size: 50px;
-            margin-bottom: 15px;
-        }
-        .section__subtitle{
-            background: $color_1;
-            font-size: 35px;
-        }
         .about-me__body{
             display: flex;
             justify-content: center;
@@ -509,7 +509,73 @@ footer {
         width: 10%;
     }
 }
-
+// Portfolio
+.portfolio{
+    @include showcase();
+    .portfolio__tittle{
+        @include tittle();
+    }
+}
+.works{
+    height: 100%;
+    z-index: 1;
+    text-align: center;
+}
+.container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 30px;
+    color: #111;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    .card{
+        position: relative;
+        max-width: 350px;
+        height: 305px;
+        background: $color_2;
+        margin: 30px 10px;
+        padding: 20px 15px;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 5px 202px rgba(0,0,0,0.5);
+        transition: 0.3s ease-in-out;
+        &:hover{
+            height: 410px;
+            .content{
+                visibility: visible;
+                opacity: 1;
+                margin-top: -40px;
+            }
+        }
+        .imgbx{
+            position: relative;
+            width: 260px;
+            height: 300px;
+            top: -60px;
+            left: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            z-index: 1;
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 4px;
+            }
+        }
+        .content{
+            position: relative;
+            margin-top: -140px;
+            padding: 10px 15px;
+            text-align: center;
+            color: #111;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s ease-in-out;
+        }
+    }
+}
 // Media querys 
 @media (max-width: 599px){
     header {
@@ -552,18 +618,17 @@ footer {
 	}
     .contact{
         padding: 50px;
-        .container{
+        .form{
             flex-direction: column;
-            .contactInfo{
+            .form__info{
                 margin-bottom: 40px;
                 width: 100%;
             }
-            .contactForm{
+            .form__contact{
                 width: 100%;
             }
         }
     }
-    
     .about{
         .about-me{
             margin: 0;
@@ -588,6 +653,17 @@ footer {
             }
         }
     }
+    .container{
+        .card{
+            height: 500px;
+            .content{
+                visibility: visible;
+                opacity: 1;
+                margin-top: 0;
+            }
+        }
+    }
+    
 }
 @media (max-width: 1000px){
     .about-me__body{

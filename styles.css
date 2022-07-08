@@ -254,6 +254,7 @@ footer p {
 }
 .showcase .text a:hover {
   letter-spacing: 6px;
+  color: #0DC30D;
 }
 
 @-webkit-keyframes blink {
@@ -312,20 +313,21 @@ footer p {
      object-fit: cover;
   opacity: 0.8;
 }
-.contact .content {
+.contact .contact__tittle {
   max-width: 800px;
   text-align: center;
   margin-top: 50px;
   z-index: 10;
 }
-.contact .content h2 {
-  font-size: 36px;
+.contact .contact__tittle h2 {
+  font-size: 50px;
+  color: #0DC30D;
+}
+.contact .contact__tittle p {
+  font-size: 20px;
   color: #fff;
 }
-.contact .content p {
-  color: #fff;
-}
-.contact .container {
+.contact .form {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -334,17 +336,17 @@ footer p {
   -webkit-backdrop-filter: blur(15px);
           backdrop-filter: blur(15px);
 }
-.contact .container .contactInfo {
+.contact .form .form__info {
   width: 50%;
   display: flex;
   flex-direction: column;
 }
-.contact .container .contactInfo .box {
+.contact .form .form__info .box {
   position: relative;
   padding: 20px 0;
   display: flex;
 }
-.contact .container .contactInfo .box .icon {
+.contact .form .form__info .box .box__icon {
   min-width: 60px;
   height: 60px;
   display: flex;
@@ -354,30 +356,30 @@ footer p {
   font-size: 22px;
   margin-left: 20px;
 }
-.contact .container .contactInfo .box .text {
+.contact .form .form__info .box .box__text {
   display: flex;
   margin-left: 20px;
   font-size: 16px;
   color: #fff;
   flex-direction: column;
 }
-.contact .container .contactInfo .box .text h3 {
+.contact .form .form__info .box .box__text h3 {
   color: #0DC30D;
 }
-.contact .container .contactForm {
+.contact .form .form__contact {
   width: 50%;
   padding: 40px;
   background: #fff;
 }
-.contact .container .contactForm h2 {
+.contact .form .form__contact h2 {
   font-size: 30px;
 }
-.contact .container .contactForm .inputBox {
+.contact .form .form__contact .inputBox {
   position: relative;
   width: 100%;
   margin-top: 10px;
 }
-.contact .container .contactForm .inputBox input, .contact .container .contactForm .inputBox textarea {
+.contact .form .form__contact .inputBox input, .contact .form .form__contact .inputBox textarea {
   width: 100%;
   padding: 5px 0;
   font-size: 16px;
@@ -387,11 +389,15 @@ footer p {
   outline: none;
   resize: none;
 }
-.contact .container .contactForm .inputBox input:focus ~ span, .contact .container .contactForm .inputBox textarea:focus ~ span {
+.contact .form .form__contact .inputBox input:focus ~ span, .contact .form .form__contact .inputBox textarea:focus ~ span {
   font-size: 12px;
   transform: translateY(-20px);
 }
-.contact .container .contactForm .inputBox span {
+.contact .form .form__contact .inputBox input:valid ~ span, .contact .form .form__contact .inputBox textarea:valid ~ span {
+  transform: translateY(-20px);
+  font-size: 12px;
+}
+.contact .form .form__contact .inputBox span {
   position: absolute;
   left: 0;
   padding: 5px 0;
@@ -401,7 +407,7 @@ footer p {
   transition: 0.5s;
   color: #111;
 }
-.contact .container .contactForm .inputBox input[type=submit], .contact .container .contactForm .inputBox textarea[type=submit] {
+.contact .form .form__contact .inputBox input[type=submit], .contact .form .form__contact .inputBox textarea[type=submit] {
   width: 100px;
   background: #0DC30D;
   color: #fff;
@@ -432,6 +438,23 @@ footer p {
      object-fit: cover;
   opacity: 0.8;
 }
+.about .about__tittle {
+  max-width: 800px;
+  text-align: center;
+  margin-top: 50px;
+  z-index: 10;
+}
+.about .about__tittle h2 {
+  font-size: 50px;
+  color: #0DC30D;
+}
+.about .about__tittle p {
+  font-size: 20px;
+  color: #fff;
+}
+.about .about__tittle p {
+  font-size: 30px;
+}
 .about .about-me {
   display: flex;
   justify-content: center;
@@ -439,14 +462,6 @@ footer p {
   flex-direction: column;
   z-index: 2;
   margin: 80px auto 20px;
-}
-.about .about-me .section__title {
-  font-size: 50px;
-  margin-bottom: 15px;
-}
-.about .about-me .section__subtitle {
-  background: #0DC30D;
-  font-size: 35px;
 }
 .about .about-me .about-me__body {
   display: flex;
@@ -584,6 +599,104 @@ footer p {
     width: 10%;
   }
 }
+.portfolio {
+  position: relative;
+  min-height: 100vh;
+  padding: 50px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-size: cover;
+  background-color: #111;
+}
+.portfolio video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.8;
+}
+.portfolio .portfolio__tittle {
+  max-width: 800px;
+  text-align: center;
+  margin-top: 50px;
+  z-index: 10;
+}
+.portfolio .portfolio__tittle h2 {
+  font-size: 50px;
+  color: #0DC30D;
+}
+.portfolio .portfolio__tittle p {
+  font-size: 20px;
+  color: #fff;
+}
+
+.works {
+  height: 100%;
+  z-index: 1;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 30px;
+  color: #111;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.container .card {
+  position: relative;
+  max-width: 350px;
+  height: 305px;
+  background: #fff;
+  margin: 30px 10px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 5px 202px rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+}
+.container .card:hover {
+  height: 410px;
+}
+.container .card:hover .content {
+  visibility: visible;
+  opacity: 1;
+  margin-top: -40px;
+}
+.container .card .imgbx {
+  position: relative;
+  width: 260px;
+  height: 300px;
+  top: -60px;
+  left: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.container .card .imgbx img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+.container .card .content {
+  position: relative;
+  margin-top: -140px;
+  padding: 10px 15px;
+  text-align: center;
+  color: #111;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
 @media (max-width: 599px) {
   header {
     padding: 40px;
@@ -632,14 +745,14 @@ footer p {
   .contact {
     padding: 50px;
   }
-  .contact .container {
+  .contact .form {
     flex-direction: column;
   }
-  .contact .container .contactInfo {
+  .contact .form .form__info {
     margin-bottom: 40px;
     width: 100%;
   }
-  .contact .container .contactForm {
+  .contact .form .form__contact {
     width: 100%;
   }
 
@@ -661,6 +774,15 @@ footer p {
   }
   .about .about-me .skills__section {
     width: 350px;
+  }
+
+  .container .card {
+    height: 500px;
+  }
+  .container .card .content {
+    visibility: visible;
+    opacity: 1;
+    margin-top: 0;
   }
 }
 @media (max-width: 1000px) {

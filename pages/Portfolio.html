@@ -1,29 +1,93 @@
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Portfolio</title>
-            <meta name="description" content="If you want to know more about Federico's works, take a look at this site">
-            <meta name="keywords" content="Portfolio, curriculum, Fede, Del Valle, Mi portfolio, Desarrollador, Web">
-            <meta name="author" content="fedexdelvalle@gmail.com">
-        </head>
-        <body>
-            
-            <footer>
-                <ul class="social__icon">
-                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                </ul>
-                <ul class="footer__menu">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About Me</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">Works</a></li>
-                </ul>
-                <p> © 2022 Federico Del Valle| All Rights Reserved </p>
-            </footer>
-        </body>
-        </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <meta name="description" content="If you want to know more about Federico's works, take a look at this site">
+    <meta name="keywords" content="Portfolio, curriculum, Fede, Del Valle, Mi portfolio, Desarrollador, Web">
+    <meta name="author" content="fedexdelvalle@gmail.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h2 class="logo">Portfolio.</h2>
+    </header>
+    <nav>
+        <button class="toggle" aria-expanded="false"></button>
+        <div class="menu" data-visible="false">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/pages/About-me.html">About Me</a></li>
+                <li><a href="/pages/Portfolio.html">Portfolio</a></li>
+                <li><a href="/pages/Contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="portfolio">
+        <video src="/img/Loop Matrix Desktop Wallpaper Full HD.mp4" muted loop autoplay></video>
+        <div class="portfolio__tittle">
+            <h2>Portfolio</h2>
+            <p>Some of my newest, previus and future works</p>
+        </div>
+    <section class="works">
+        <div class="container">
+            <div class="card">
+                <div class="imgbx">
+                    <img src="/img/project-1.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h2>Mobile app</h2>
+                    <p>This page is not real, it is only to show an example for the final proyext!</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imgbx">
+                    <img src="/img/project-2.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h2>Profile</h2>
+                    <p>This page is not real, it is only to show an example for the final proyext!</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imgbx">
+                    <img src="/img/project-3.jpg" alt="">
+                </div>
+                <div class="content">
+                    <h2>Coderhouse</h2>
+                    <p>This page is not real, it is only to show an example for the final proyext!</p>
+                </div>
+            </div>
+        </div>
+        <p>As I mention before, this site was built and created for the final proyect of the coderhouse's course. In the future i will be uploading future jobs and other things to show my improvement</p>
+    </section>
+    <footer>
+        <ul class="social__icon">
+            <li><a href="https://twitter.com/Federico9838"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/fede_delvalle/"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/federico.delvalle.94/"><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a href="https://github.com/Federico-Del-Valle"><i class="fa-brands fa-github"></i></a></li>
+        </ul>
+        <ul class="footer__menu">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/pages/About-me.html">About Me</a></li>
+            <li><a href="/pages/Contact.html">Contact</a></li>
+            <li><a href="/pages/Portfolio.html">Portfolio</a></li>
+        </ul>
+        <p> © 2022 Federico Del Valle| All Rights Reserved </p>
+    </footer>
+    </main>
+    <aside>
+        <ul class="social">
+            <li><a href="https://twitter.com/Federico9838"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/fede_delvalle/"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/federico.delvalle.94/"><i class="fa-brands fa-facebook-f"></a></i></li>
+            <li><a href="https://github.com/Federico-Del-Valle"><i class="fa-brands fa-github"></a></i></li>
+        </ul>
+    </aside>
+    <script src="../main.js"></script>
+</body>
+</html>
